@@ -1,3 +1,44 @@
-.container{
-    background-color: rebeccapurple;
+.mainTitle{
+    font-size: 4rem;
+}
+
+.selectTitle{
+    margin: 1.2rem 0;
+}
+.items{
+    display: flex;
+    gap: 3rem;
+}
+.item{
+    border: 5px solid #bbb;
+    border-radius: 5px;
+    width: 300px;
+    height: 400px;
+    position: relative;
+    cursor: pointer;
+}
+.item:nth-child(1){
+    background: url("/illustration.png");
+    background-size: cover !important;
+}
+.item:nth-child(2){
+    background: url("/websites.jpg");
+    background-size: cover !important;
+}
+.item:nth-child(3){
+    background: url("/apps.jpg");
+    background-size: cover !important;
+}
+.title{
+    position: absolute;
+    right: 1rem;
+    bottom: 1rem;
+    font-size: 1.5rem;
+    transition: 0.3s all ease-in-out;
+    color: #fff;
+}
+
+.item:hover .title{
+    color: #53c28b;
+    text-decoration: underline;
 }
