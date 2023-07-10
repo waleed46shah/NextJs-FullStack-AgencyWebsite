@@ -1,5 +1,13 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Project Purpose
+In this project I'm learning about all the concepts and advantages of NextJs. And also learning to develop a fullstack app on it. 
 
+# What I learnt?
+- NextJs is SEO friendly due to server side rendering
+- NextJs is performance friendly as server compiles the rendering instead of local browser
+- You can also do Client Side Rendering if your page contains interactions
+- Routing is quite easy in NextJs, no external library is needed
+- NextJS natively supports image downsizing which improves performance on slower networks.
+- NextJS also supports lazy loading which impacts performance significantly.
 ## Getting Started
 
 First, run the development server:
