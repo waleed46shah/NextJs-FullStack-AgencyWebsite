@@ -2,34 +2,27 @@ import React from 'react'
 import styles from './page.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
-import wolf from 'public/wolf.jpg'
 
 async function getData() {
-  const res = await fetch('https://jsonplaceholder.typicode.com/posts', {next:{cache:"no-store"}})
+  const res = await fetch("http://localhost:3000/api/posts", {next:{cache:"no-store", revalidate:0}})
   if (!res.ok) {
     throw new Error('Failed to fetch data')
   }
-
   return res.json()
 }
-
-
-
 
 const Blog = async () => {
 
   const data = await getData();
+  
   return (
     <div className={styles.mainContainer}>
-
-      {data.map(item => (
-
-          
-       
-      < Link key={item.id} href = "/blog/testId" className = { styles.container } >
+      
+      {data.map(item => (       
+      < Link key={item.id} href ={`/blog/${item._id}`} className = { styles.container } >
         <div className={styles.imgContainer}>
           <Image
-            src={wolf}
+            src={item.image}
             alt='img'
             width={400}
             height={250}
@@ -38,7 +31,7 @@ const Blog = async () => {
         </div>
         <div className={styles.content}>
           <h1 className={styles.title}>{item.title}</h1>
-          <p className={styles.desc}> desc</p>
+          <p className={styles.desc}> {item.desc}</p>
         </div>
       </Link>
     ))}

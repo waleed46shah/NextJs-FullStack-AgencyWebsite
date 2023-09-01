@@ -2,9 +2,8 @@ import Navbar from '@/components/navbar/Navbar'
 import './globals.css'
 import { Inter } from 'next/font/google' //No need to download google fonts
 import Footer from './../components/footer/Footer';
-import { Suspense } from 'react'; //Enables us to show loading page.
-import Loading from './contact/loading';
-import { ThemeProvider } from '../../context/ThemeContext';
+import { ThemeProvider } from '../context/ThemeContext';
+import AuthProvider from '@/components/AuthProvider/AuthProvider';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,19 +15,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      
-        <body className={inter.className}>
-          <ThemeProvider>
+      <body className={inter.className}>
+        <ThemeProvider>
+          <AuthProvider>
             <div className="container">
               <Navbar />
               {children}
               <Footer />
             </div>
-
-          </ThemeProvider>
-        </body>
-      
-
+          </AuthProvider>
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
